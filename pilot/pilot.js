@@ -30,4 +30,15 @@ pilotConnection.on("new-flight", (flightDetails)=>{
               flightDetails.time = new Date();
               airLineConnection.emit("took-off", flightDetails);
             }, 4000);
+            pilotConnection.emit('get_all')
+            pilotConnection.on('flight',(payload)=>{
+             console.log(`${flightDetails.Details.pilot}:Sorry i didn't catch this flight ${payload.id}`)
+
+            })
+            pilotConnection.on('flightarrived', (flight) => {
+              console.log('i got it.');
+              
+              pilotConnection.emit('received', flight);
+          });
+
 });

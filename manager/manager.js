@@ -12,7 +12,7 @@ const managerConnection = io.connect(host);
 setInterval(() => {
   const flightId = uuidv4();
   const destination = faker.location.city();
-  const pilotName = faker.person.firstName();
+  const pilotName = faker.person.lastName();
 
   const flightDetails = {
     event: "new-flight",
